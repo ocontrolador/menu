@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+ * Autor: André Dias <santosdias@yaho.com.br>
+ * Data: 04/08/2018
+ * Descrição:
+ ** Copyright © 2018 OControlador <ocontrolador.com.br>.  Todos direitos reservados. ** 
+-->
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>cartas</title>
+        <link rel="icon" href="logo.png">        
+        <link rel="stylesheet" href="estilo.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div id="menu" class="menu-container">
+            Menu
+        </div>
+        <img src='local.png' alt="Localidades" class="local" onclick="showthis('jLocal');">
+        <div id="jLocal">
+            <div style="padding-top:5px; margin-bottom:10px;">
+                <div style="float:left;" ><b>Localidades do Menu</b></div>
+                <div style="float:right;"><a  href="javascript:closethis('jLocal')" title="Fechar">X</a></div>
+            </div><br>            
+                <input type="text" name="icao" id='icao' value="SBGL,SBRJ,SBSC,SBAF" size="40" placeholder="Indicativos ICAO separados po vígula" ><br><br>            
+                <button onclick="criaMenu(document.getElementById('icao').value);setCookie('icaoValor', document.getElementById('icao').value, 30);" > Atualizar </button>           
+        </div>
+
+        <iframe src="inicio.html" name="carta" id="carta" ></iframe>
+        <script>
+            carregaDados('icaoValor');
+            //criaMenu(locais);            
+        </script>
+    </body>
+</html>
